@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from rest_framework import serializers
 from rest_framework.relations import SlugRelatedField
 from rest_framework.validators import UniqueTogetherValidator
+from drf_extra_fields.fields import Base64ImageField
 
 from posts.models import Comment, Post, Group, Follow
 
@@ -19,7 +20,7 @@ class PostSerializer(serializers.ModelSerializer):
     author = serializers.SlugRelatedField(
         slug_field='username', read_only=True
     )
-    image = serializers.StringRelatedField(required=False)
+    image = Base64ImageField(required=False, allow_null=True)
     group = serializers.PrimaryKeyRelatedField(
         queryset=Group.objects.all(), required=False
     )
