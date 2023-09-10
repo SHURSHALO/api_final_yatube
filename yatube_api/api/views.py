@@ -39,12 +39,11 @@ class CommentViewSet(viewsets.ModelViewSet):
     '''Чтения, создания, обновления и удаления комментариев к постам.'''
 
     serializer_class = CommentSerializer
-    permission_classes = (OnlyAuthorHasPerm,)
 
     def get_permissions(self):
         if self.action == 'retrieve':
             return (ReadOnly(),)
-        return super().get_permissions()
+        return (OnlyAuthorHasPerm(),)
 
     def get_post(self):
         return get_object_or_404(Post, pk=self.kwargs.get('post_id'))
