@@ -1,6 +1,7 @@
 from django.shortcuts import get_object_or_404
 from rest_framework import viewsets, permissions, filters
 from rest_framework.pagination import LimitOffsetPagination
+from rest_framework import mixins
 
 from posts.models import Post, Group
 from api.serializers import (
@@ -55,7 +56,11 @@ class CommentViewSet(viewsets.ModelViewSet):
         serializer.save(author=self.request.user, post=self.get_post())
 
 
-class FollowViewSet(viewsets.ModelViewSet):
+class FollowViewSet(
+    mixins.CreateModelMixin,
+    mixins.ListModelMixin,
+    viewsets.GenericViewSet,
+):
     '''Просмотр подписок, подписка'''
 
     serializer_class = FollowSerializer
