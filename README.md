@@ -25,6 +25,8 @@ python manage.py migrate
 
 python manage.py createsuperuser
 
-6. Запустите сервер разработки:
+# Запуск
+
+Запустите сервер разработки:
 
 python manage.py runserver
