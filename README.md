@@ -4,9 +4,9 @@
 # Установка
 
 1. Клонируйте репозиторий на свой компьютер:
-
+```
 git@github.com:SHURSHALO/api_final_yatube.git
-
+```
 2. Создайте и активируйте виртуальное окружение:
 
 python -m venv venv
