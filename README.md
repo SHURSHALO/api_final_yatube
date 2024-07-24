@@ -8,25 +8,31 @@
 git@github.com:SHURSHALO/api_final_yatube.git
 ```
 2. Создайте и активируйте виртуальное окружение:
-
-python -m venv venv
-
-venv\Scripts\activate
-
+```
+py -3.9 -m venv venv
+```
+```
+source venv/Scripts/activate
+```
 3. Установите зависимости:
-
+```
 pip install -r requirements.txt
-
+```
 4. Примените миграции:
-
+```
+cd yatube_api
+```
+```
 python manage.py migrate
-
+```
 5. Создайте суперпользователя:
-
+```
 python manage.py createsuperuser
-
+```
 # Запуск
 
 Запустите сервер разработки:
-
+```
 python manage.py runserver
+```
+Документация доступна по адресу: http://127.0.0.1:8000/redoc/
